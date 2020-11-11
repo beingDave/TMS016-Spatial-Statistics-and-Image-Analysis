@@ -1,0 +1,81 @@
+dmodel_jaffe_high_val_acc.pt
+Test Loss: 0.496419
+
+Test Accuracy of Angry: 88% ( 8/ 9)
+Test Accuracy of Disgust: 83% ( 5/ 6)
+Test Accuracy of  Fear: 100% ( 4/ 4)
+Test Accuracy of Happy: 70% ( 7/10)
+Test Accuracy of   Sad: 75% ( 3/ 4)
+Test Accuracy of Surprise: 66% ( 4/ 6)
+Test Accuracy of Neutral: 100% ( 4/ 4)
+
+Test Accuracy (Overall): 81% (35/43)
+<Figure size 432x288 with 0 Axes>
+
+------------------------------------------------------------------
+
+
+dmodel_jaffe_low_val_loss.pt
+Test Loss: 0.370439
+
+Test Accuracy of Angry: 100% ( 9/ 9)
+Test Accuracy of Disgust: 100% ( 6/ 6)
+Test Accuracy of  Fear: 100% ( 4/ 4)
+Test Accuracy of Happy: 70% ( 7/10)
+Test Accuracy of   Sad: 75% ( 3/ 4)
+Test Accuracy of Surprise: 83% ( 5/ 6)
+Test Accuracy of Neutral: 100% ( 4/ 4)
+
+Test Accuracy (Overall): 88% (38/43)
+<Figure size 432x288 with 0 Axes>
+
+
+------------------------------------------------------------------
+
+
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 16, 48, 48]             160
+       BatchNorm2d-2           [-1, 16, 48, 48]              32
+            Conv2d-3           [-1, 32, 24, 24]           4,640
+       BatchNorm2d-4           [-1, 32, 24, 24]              64
+            Conv2d-5           [-1, 64, 12, 12]          18,496
+       BatchNorm2d-6           [-1, 64, 12, 12]             128
+            Conv2d-7             [-1, 64, 6, 6]          36,928
+       BatchNorm2d-8             [-1, 64, 6, 6]             128
+           Dropout-9                  [-1, 576]               0
+           Linear-10                  [-1, 256]         147,712
+          Dropout-11                  [-1, 256]               0
+           Linear-12                    [-1, 7]           1,799
+================================================================
+Total params: 210,087
+Trainable params: 210,087
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.01
+Forward/backward pass size (MB): 1.03
+Params size (MB): 0.80
+Estimated Total Size (MB): 1.84
+----------------------------------------------------------------
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.001
+    weight_decay: 0.001
+)
+MNetwork(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (conv3): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (conv4): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (BN1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (BN2): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (BN3): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (BN4): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (fc1): Linear(in_features=576, out_features=256, bias=True)
+  (out): Linear(in_features=256, out_features=7, bias=True)
+  (dropout): Dropout(p=0.5, inplace=False)
+)
